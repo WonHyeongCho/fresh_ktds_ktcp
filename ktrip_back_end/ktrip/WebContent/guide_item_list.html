@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<!--가이드 페이지 pageNo.7 -->
 <html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -19,7 +19,7 @@
 </head>
 <body>
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top " id="mainNav">
     <div class="container">
       <a class="navbar-brand" href="./index.html"><img src="./img/logo.png" width="80" height="30" alt="KTrip"></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="true" aria-label="Toggle navigation">
@@ -64,91 +64,78 @@
     </div>
   </header>
 
-  <!--subNavigator-->
+  <!--Main -->
+  <!--상당 메뉴 -->
   <nav class="navbar navbar-expand-lg">
    <div class="container-fluid">
     <div class="navbar-collapse collapse show" id="navbarResponsive" style="">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="./index.html">SIGNUP</a>
+          <a class="nav-link" href="./guide_item_list.html">등록한 여행</a> <!--링크-->
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="./index.html">SERVICE</a>
+          <a class="nav-link" href="./guide_item_registration.html">가이드 상품 등록</a><!--링크PageNo.9-->
         </li>
       </ul>
     </div>
   </div>
  </nav>
+ <hr>
 
-  <!-- Main -->
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-        <form name="userinfo" id="userinfo" novalidate="" method="post">
-          <div class="control-group">
-              <h5 class=text-info>ID</h5>
-              <p><%= request.getParameter("id") %></p>
-          </div>
-
-          <div class="control-group">
-            <h5 class=text-info>PASSWORD</h5>
-              <p><%= request.getParameter("pwd") %></p>
-              <p class="help-block text-danger"></p>
-          </div>
-
-          <div class="control-group">
-            <h5 class=text-info>EMAIL</h5>
-              <p><%= request.getParameter("email") %></p>
-              <p class="help-block text-danger"></p>
-          </div>
-
-          <div class="control-group">
-              <h5 class=text-info>NAME</h5>
-              <p><%= request.getParameter("name") %></p>
-              <p class="help-block text-danger"></p>
-          </div>
-
-          <div class="control-group">
-                 <h5 class=text-info>GENDER</h5>
-                 <p><%= request.getParameter("sex") %></p>
-             </div>
-
-          <div class="control-group">
-              <h5 class=text-info>PHONE</h5>
-              <p><%= request.getParameter("phone_num") %></p>
-              <p class="help-block text-danger"></p>
-          </div>
-
-          <div class="row">
-              <div class="col-md-12">
-                  <form class="form-horizontal">
-                      <div class="form-group">
-                          <h5 class=text-info>COUNTRY</h5>
-                          <p><%= request.getParameter("country") %></p>
-
-                      </div>
-                  </form>
-              </div>
-          </div>
-
-          <div class="row">
-              <div class="col-md-12">
-                  <form class="form-horizontal">
-                      <div class="form-group">
-                          <h5 class=text-info>RESIDENTIAL COUNTRY</h5>
-                          <p><%= request.getParameter("residential_country") %></p>
-
-                      </div>
-                  </form>
-              </div>
-          </div>
-          <div id="success"></div>
-        </form>
-      </div>
+        <!-- Contact Form -->
+        <h5>등록한 여행</h5><br>
+        <table class="table table-responsive{-sm|-md|-lg|-xl}">
+          <thead class="thead-light">
+            <tr>
+              <th>상품이름</th>
+              <th>기간</th>
+              <th>신청자</th>
+              <th>상세보기</th>
+            </tr>
+          </thead>
+          </tbody>
+            <tr>
+              <td>맛있는 도쿄여행</td>
+              <td>3박4일</td>
+              <td>(1)</td>
+              <td><a onclick="window.open('./guide_popup.html','window_name','left=500,width=800,height=600,location=no,status=no,scrollbars=yes');">....</a></td>
+            </tr>
+            <tr>
+              <td>맛있는 도쿄여행</td>
+              <td>3박4일</td>
+              <td>(1)</td>
+              <td><a onclick="window.open('./guide_popup.html','window_name','left=500,width=800,height=600,location=no,status=no,scrollbars=yes');">....</a></td>
+            </tr>
+            <tr>
+              <td>맛있는 도쿄여행</td>
+              <td>3박4일</td>
+              <td>(1)</td>
+              <td><a onclick="window.open('./guide_popup.html','window_name','left=500,width=800,height=600,location=no,status=no,scrollbars=yes');">....</a></td>
+            </tr>
+            <tr>
+                <td>맛있는 도쿄여행</td>
+                <td>3박4일</td>
+                <td>(1)</td>
+                <td><a onclick="window.open('./guide_popup.html','window_name','left=500,width=800,height=600,location=no,status=no,scrollbars=yes');">....</a></td>
+            </tr>
+            <tr>
+                <td>맛있는 도쿄여행</td>
+                <td>3박4일</td>
+                <td>(1)</td>
+                <td><a onclick="window.open('./guide_popup.html','window_name','left=500,width=800,height=600,location=no,status=no,scrollbars=yes');">....</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div><!--basic containge form-->
     </div>
   </div>
 
+
   <!-- Footer -->
+  <hr>
   <footer>
     <div class="container">
       <div class="row">
@@ -192,7 +179,7 @@
   <!-- Bootstrap core JavaScript -->
 <script>
 // When the user clicks on div, open the popup
-<!--popup jsp-->
+//<!--popup jsp-->
 function myFunction() {
   var popup = document.getElementById("myPopup");
   popup.classList.toggle("show");

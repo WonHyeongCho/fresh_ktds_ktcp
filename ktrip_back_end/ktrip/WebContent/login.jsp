@@ -101,7 +101,7 @@
 					<div class="form-group">
 						<button type="submit" class="btn btn-primary" id="signIn">Sign
 							in</button>
-						<a class="btn btn-primary" href="./signup.html#">Sign up</a>
+						<a class="btn btn-primary" href="./signup.jsp#">Sign up</a>
 					</div>
 					<div class="form-group">
 						<a class="btn btn-primary" href="./index.html#">바로가기→</a>

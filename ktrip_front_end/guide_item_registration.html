@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<!--사이드 상품 등록 pageNo.9 -->
 <html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -17,7 +17,6 @@
   <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
   <link href="./css/clean-blog.min.css" rel="stylesheet">
 </head>
-
 <body>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
@@ -65,47 +64,97 @@
     </div>
   </header>
 
-  <!-- Main Content -->
-  <p></p>
+  <!--Main -->
+  <!--상당 메뉴 -->
+  <nav class="navbar navbar-expand-lg">
+   <div class="container-fluid">
+    <div class="navbar-collapse collapse show" id="navbarResponsive" style="">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="./guide_item_list.html">등록한 여행</a> <!--링크-->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./guide_item_registration.html">가이드 상품 등록</a><!--링크PageNo.9-->
+        </li>
+      </ul>
+    </div>
+  </div>
+ </nav>
+ <hr>
+
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-
-        <form name="login" id="login" novalidate="" method="post">
+        <!-- Contact Form -->
+        <h5>가이드 상품 등록</h5>
+        <form name="form_item_reg" id="" novalidate="">
+          <!--아이디 확인.-->
+  
           <div class="control-group">
-              <h5 class=text-info>ID</h5>
-              <input type="text" class="form-control" placeholder="ID를 입력해 주세요" id="id" required="" data-validation-required-message="필수 항목입니다.">
-              <p class="help-block text-danger"></p>
+            <h5 class=text-info>상품명</h5>
+            <input type="text" class="form-control" placeholder="상품명" id="title" required
+              data-validation-required-message="상품명을 입력해주세요.">
+            <p class="help-block text-danger"></p>
+          </div>
+  
+          <div class="control-group">
+            <h5 class=text-info>최소인원</h5>
+            <input type="text" class="form-control" placeholder="최소인원" id="num_min" required
+              data-validation-required-message="최소인원을 입력해주세요.">
+            <p class="help-block text-danger"></p>
           </div>
 
           <div class="control-group">
-            <h5 class=text-info>PASSWORD</h5>
-              <input type="Password" class="form-control" placeholder="비밀번호를 입력해 주세요" id="pwd" required="" data-validation-required-message="필수 항목입니다.">
-              <p class="help-block text-danger"></p>
+            <h5 class=text-info>최대인원</h5>
+            <input type="text" class="form-control" placeholder="최대인원" id="num_max" required
+              data-validation-required-message="최대인원을 입력해주세요.">
+            <p class="help-block text-danger"></p>
           </div>
 
-          <br>
+          <div class="control-group">
+            <h5 class=text-info>기간</h5>
+            <input type="text" class="form-control" placeholder="기간" id="duration" required
+              data-validation-required-message="기간을 입력해주세요.">
+            <p class="help-block text-danger"></p>
+          </div>
+  
+          <div class="control-group">
+            <h5 class=text-info>가격(1인당)</h5>
+            <input type="text" class="form-control" placeholder="가격(1인당)" id="price" required
+              data-validation-required-message="가격(1인당)을 입력해주세요.">
+            <p class="help-block text-danger"></p>
+          </div>
+
+          <div class="control-group">
+            <h5 class=text-info>상품 소개</h5>
+            <textarea rows="5" class="form-control" placeholder="상품 소개" id="contents" required
+              data-validation-required-message="상품 소개를 입력해주세요."></textarea>
+            <p class="help-block text-danger"></p>
+          </div>       
+  
           <div id="success"></div>
           <div class="form-group">
-            <button type="submit" class="btn btn-primary" id="signin">LOGIN</button>
-            <a class="btn btn-primary" href="./signup.html#">SIGN UP</a>
-          </div>
-          <div class="form-group">
-            <a class="btn btn-primary" href="./index.html#">바로가기→</a>
+            <button type="submit" class="btn btn-primary" id="signIn">REGISTER</button>
+            <button type="submit" class="btn btn-primary" id="signUp">CANCEL</button>
           </div>
         </form>
+  
+  
+  
       </div>
+      <!--basic containge form-->
     </div>
   </div>
 
-  <hr>
 
   <!-- Footer -->
+  <hr>
   <footer>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <ul class="list-inline text-center">
+
             <li class="list-inline-item">
               <a href="./index.html#">
                 <span class="fa-stack fa-lg">
@@ -143,7 +192,7 @@
   <!-- Bootstrap core JavaScript -->
 <script>
 // When the user clicks on div, open the popup
-<!--popup jsp-->
+//<!--popup jsp-->
 function myFunction() {
   var popup = document.getElementById("myPopup");
   popup.classList.toggle("show");

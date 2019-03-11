@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-
+<!--가이드 페이지 pageNo.7 -->
 <html lang="ko"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -17,10 +17,9 @@
   <!--<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">-->
   <link href="./css/clean-blog.min.css" rel="stylesheet">
 </head>
-
 <body>
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+  <nav class="navbar navbar-expand-lg navbar-light fixed-top " id="mainNav">
     <div class="container">
       <a class="navbar-brand" href="./index.html"><img src="./img/logo.png" width="80" height="30" alt="KTrip"></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="true" aria-label="Toggle navigation">
@@ -65,47 +64,84 @@
     </div>
   </header>
 
-  <!-- Main Content -->
-  <p></p>
+  <!--Main -->
+  <!--상당 메뉴 -->
+  <nav class="navbar navbar-expand-lg">
+   <div class="container-fluid">
+    <div class="navbar-collapse collapse show" id="navbarResponsive" style="">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="./guide_item_list.html">등록한 여행</a> <!--링크-->
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./guide_item_registration.html">가이드 상품 등록</a><!--링크PageNo.9-->
+        </li>
+      </ul>
+    </div>
+  </div>
+ </nav>
+ <hr>
+
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
-
-        <form name="login" id="login" novalidate="" method="post">
-          <div class="control-group">
-              <h5 class=text-info>ID</h5>
-              <input type="text" class="form-control" placeholder="ID를 입력해 주세요" id="id" required="" data-validation-required-message="필수 항목입니다.">
-              <p class="help-block text-danger"></p>
-          </div>
-
-          <div class="control-group">
-            <h5 class=text-info>PASSWORD</h5>
-              <input type="Password" class="form-control" placeholder="비밀번호를 입력해 주세요" id="pwd" required="" data-validation-required-message="필수 항목입니다.">
-              <p class="help-block text-danger"></p>
-          </div>
-
-          <br>
-          <div id="success"></div>
-          <div class="form-group">
-            <button type="submit" class="btn btn-primary" id="signin">LOGIN</button>
-            <a class="btn btn-primary" href="./signup.html#">SIGN UP</a>
-          </div>
-          <div class="form-group">
-            <a class="btn btn-primary" href="./index.html#">바로가기→</a>
-          </div>
-        </form>
-      </div>
+        <!-- Contact Form -->
+        <h5>등록한 여행</h5><br>
+        <table class="table table-responsive{-sm|-md|-lg|-xl}">
+          <thead class="thead-light">
+            <tr>
+              <th>상품이름</th>
+              <th>기간</th>
+              <th>신청자</th>
+              <th>상세보기</th>
+            </tr>
+          </thead>
+          </tbody>
+            <tr>
+              <td>맛있는 도쿄여행</td>
+              <td>3박4일</td>
+              <td>(1)</td>
+              <td><a onclick="window.open('./guide_popup.html','window_name','left=500,width=800,height=600,location=no,status=no,scrollbars=yes');">....</a></td>
+            </tr>
+            <tr>
+              <td>맛있는 도쿄여행</td>
+              <td>3박4일</td>
+              <td>(1)</td>
+              <td><a onclick="window.open('./guide_popup.html','window_name','left=500,width=800,height=600,location=no,status=no,scrollbars=yes');">....</a></td>
+            </tr>
+            <tr>
+              <td>맛있는 도쿄여행</td>
+              <td>3박4일</td>
+              <td>(1)</td>
+              <td><a onclick="window.open('./guide_popup.html','window_name','left=500,width=800,height=600,location=no,status=no,scrollbars=yes');">....</a></td>
+            </tr>
+            <tr>
+                <td>맛있는 도쿄여행</td>
+                <td>3박4일</td>
+                <td>(1)</td>
+                <td><a onclick="window.open('./guide_popup.html','window_name','left=500,width=800,height=600,location=no,status=no,scrollbars=yes');">....</a></td>
+            </tr>
+            <tr>
+                <td>맛있는 도쿄여행</td>
+                <td>3박4일</td>
+                <td>(1)</td>
+                <td><a onclick="window.open('./guide_popup.html','window_name','left=500,width=800,height=600,location=no,status=no,scrollbars=yes');">....</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div><!--basic containge form-->
     </div>
   </div>
 
-  <hr>
 
   <!-- Footer -->
+  <hr>
   <footer>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <ul class="list-inline text-center">
+
             <li class="list-inline-item">
               <a href="./index.html#">
                 <span class="fa-stack fa-lg">
@@ -143,7 +179,7 @@
   <!-- Bootstrap core JavaScript -->
 <script>
 // When the user clicks on div, open the popup
-<!--popup jsp-->
+//<!--popup jsp-->
 function myFunction() {
   var popup = document.getElementById("myPopup");
   popup.classList.toggle("show");

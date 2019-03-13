@@ -26,165 +26,198 @@
     <link href="./css/common.css" rel="stylesheet" type="text/css">
     <script src="./js/common.js"></script>
     <script src="js/clean-blog.min.js"></script>
+    <script data-cfasync="false" type="text/javascript"></script>
+
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand" href="./index.html"><img src="./img/logo.png" id="nav-logo" alt="KTrip"></a>
-            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="true" aria-label="Toggle navigation">
-                Menu
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="navbar-collapse collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="./index.html">service</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./guide.html">guide</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./tourlist.html">tourlist</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="./contactus.html">contact</a>
-                    </li>
-                    <li class="nav-item"><div class="popup" onclick="user_popup()">
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+    <div class="container">
+        <a class="navbar-brand" href="./index.html"><img src="./img/logo.png" id="nav-logo" alt="KTrip"></a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="true"
+                aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="navbar-collapse collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="./index.html">service</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./guide.html">guide</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./tourlist.html">tourlist</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="./contactus.html">contact</a>
+                </li>
+                <li class="nav-item">
+                    <div class="popup" onclick="user_popup()">
                         <img src="./img/user.png" id="nav-user" alt="User">
                         <span class="popuptext" id="myPopup">A Simple Popup!</span></div>
-                    </li>
-                </ul>
-            </div>
+                </li>
+            </ul>
         </div>
-    </nav>
+    </div>
+</nav>
 
-    <!-- Page Header -->
-    <header class="masthead header-block" id="contactus-header-img">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-md-10 mx-auto">
-                        <div class="page-heading">
-                            <h1>Contact us</h1>
-                            <span class="subheading">무엇이든 물어보세요.</span>
-                        </div>
+<!-- Page Header -->
+<header class="masthead header-block" id="contactus-header-img">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <div class="page-heading">
+                    <h1>Contact us</h1>
+                    <span class="subheading">무엇이든 물어보세요.</span>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
+</header>
 
-    <!-- Main Content -->
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-9 col-md-10 mx-auto">
-                <!--Sub Header-->
-                <nav class="navbar navbar-expand-lg">
-                    <div class="container-fluid">
-                        <div class="navbar-collapse collapse show" id="navbarResponsive">
-                            <ul class="navbar-nav mr-auto">
-                                <li class="nav-item">
-                                    <a class="nav-link" href="./notice.html">공지사항</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="./faq.html">자주묻는 질문</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="./contactus.html">문의하기</a>
-                                </li>
-                            </ul>
-                        </div>
+<!-- Main Content -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-9 col-md-10 mx-auto">
+            <!--Sub Header-->
+            <nav class="navbar navbar-expand-lg">
+                <div class="container-fluid">
+                    <div class="navbar-collapse collapse show" id="navbarResponsive">
+                        <ul class="navbar-nav mr-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="./notice.html">공지사항</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./faq.html">자주묻는 질문</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="./contactus.html">문의하기</a>
+                            </li>
+                        </ul>
                     </div>
-                </nav>
-                <hr>
-            </div>
-            <div class="col-lg-8 col-md-10 mx-auto"> 
-                <br>
-                <form name="sentMessage" id="contactForm" novalidate>
-                    <div class="control-group">
-                        <h5 class=text-info>TITLE</h5>
-                        <input type="text" class="form-control" placeholder="Title" id="contact_title"
-                            required
-                            data-validation-required-message="Please enter the title.">
-                        <p class="help-block text-danger"></p>
-                    </div>
-                    <div class="control-group">
-                        <h5 class=text-info>Name</h5>
-                        <input type="text" class="form-control" placeholder="Name" id="contact_title"
-                                required
-                                data-validation-required-message="Please enter your name.">
-                        <p class="help-block text-danger"></p>
-                    </div>    
-                    <div class="control-group">
-                        <h5 class=text-info>Email</h5>
-                        <input type="text" class="form-control" placeholder="Email" id="contact_title"
-                                required
-                                data-validation-required-message="Please enter your Eamil.">
-                        <p class="help-block text-danger"></p>
-                    </div>   
-                    <div class="control-group">
-                        <h5 class=text-info>Phone</h5>
-                        <input type="text" class="form-control" placeholder="Phone" id="contact_title"
-                                required
-                                data-validation-required-message="Please enter your phone number.">
-                        <p class="help-block text-danger"></p>
-                    </div>   
-                    <div class="control-group">
-                        <h5 class=text-info>CONTENT</h5>
-                        <textarea rows="10" class="form-control" placeholder="Content"
-                                id="contact_content"></textarea>
-                        <p class="help-block text-danger"></p>
-                    </div>
-                    <div id="success"></div>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
-                        <button type="cancel" class="btn btn-primary" id="sendMessageButton">Cancel</button>
-                    </div>
-                </form>
-            </div>
+                </div>
+            </nav>
+            <hr>
+        </div>
+        <div class="col-lg-8 col-md-10 mx-auto">
+            <br>
+            <form name="sentMessage" id="gform" novalidate
+                  data-email="dksrkgus128@gmail.com">
+                <div class="control-group">
+                    <h5 class=text-info>TITLE</h5>
+                    <input type="text" class="form-control" placeholder="Title" id="title" name="title"
+                           required
+                           data-validation-required-message="Please enter the title.">
+                    <p class="help-block text-danger"></p>
+                </div>
+                <div class="control-group">
+                    <h5 class=text-info>Name</h5>
+                    <input type="text" class="form-control" placeholder="Name" id="name" name="name"
+                           required
+                           data-validation-required-message="Please enter your name.">
+                    <p class="help-block text-danger"></p>
+                </div>
+                <div class="control-group">
+                    <h5 class=text-info>Email</h5>
+                    <input type="email" class="form-control" placeholder="Email" id="email" name="email"
+                           required
+                           data-validation-required-message="Please enter your Eamil.">
+                    <p class="help-block text-danger"></p>
+                </div>
+                <div class="control-group">
+                    <h5 class=text-info>Phone</h5>
+                    <input type="phone" class="form-control" placeholder="Phone" id="phone" name="phone"
+                           required
+                           data-validation-required-message="Please enter your phone number.">
+                    <p class="help-block text-danger"></p>
+                </div>
+                <div class="control-group">
+                    <h5 class=text-info>CONTENT</h5>
+                    <textarea rows="10" class="form-control" placeholder="Content" name="content"
+                              id="content"></textarea>
+                    <p class="help-block text-danger"></p>
+                </div>
+                <div id="success"></div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" id="sendForm">Send</button>
+                    <button type="cancel" class="btn btn-primary">Cancel</button>
+                </div>
+            </form>
         </div>
     </div>
+</div>
+<script>
+$("#sendForm").click(function(e){
+e.preventDefault();
+var data = {
+name : $("#name").val(),
+title : $("#title").val(),
+email : $("#email").val(),
+phone : $("#phone").val(),
+content : $("#content").val()
+}
+    $.ajax({
+                    url: "https://script.google.com/macros/s/AKfycbxC9M_btwlssCOBzhsi7dd4_ynnFpjgp_YSozfe/exec",
+                    type: "POST",
+                    data: data,
+                    success: function(){
+                        alert("성공적으로 전송되었습니다.");
+                        $("#gform")[0].reset();
+                    }
+                });
+                });
 
-    <hr>
 
-    <footer>
-        <div class="container">
+</script>
+<hr>
+
+<footer>
+    <div class="container">
         <div class="row">
             <div class="col-lg-8 col-md-10 mx-auto">
-            <ul class="list-inline text-center">
-                <li class="list-inline-item">
-                <a href="./index.html#">
+                <ul class="list-inline text-center">
+                    <li class="list-inline-item">
+                        <a href="./index.html#">
                     <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
                     <i class="fab fa-chrome fa-stack-1x fa-inverse"></i>
                     </span>
-                </a>
-                </li>
-                <li class="list-inline-item">
-                <a href="https://github.com/WonHyeongCho/ktcp-fresh-ktds#">
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="https://github.com/WonHyeongCho/ktcp-fresh-ktds#">
                     <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
                     <i class="fab fa-github fa-stack-1x fa-inverse"></i>
                     </span>
-                </a>
-                </li>
-                <li class="list-inline-item">
-                <a href="./index.html#">
+                        </a>
+                    </li>
+                    <li class="list-inline-item">
+                        <a href="./index.html#">
                     <span class="fa-stack fa-lg">
                     <i class="fas fa-circle fa-stack-2x"></i>
                     <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
                     </span>
-                </a>
-                </li>
-            </ul>
-    
-            <p class="copyright text-muted">주소: 서울특별시 서초구 방배동 1001-1 대표 전화 : 02-523-7029 <br>
-            <a href="./index.html#">KTrip</a>
-            Copyright © <a href="https://www.ktds.com/index.jsp">KTds</a> All Rights Reserved.</p>
+                        </a>
+                    </li>
+                </ul>
+
+                <p class="copyright text-muted">주소: 서울특별시 서초구 방배동 1001-1 대표 전화 : 02-523-7029 <br>
+                    <a href="./index.html#">KTrip</a>
+                    Copyright © <a href="https://www.ktds.com/index.jsp">KTds</a> All Rights Reserved.</p>
             </div>
         </div>
-        </div>
-    </footer>
+    </div>
+</footer>
+
+<script type="text/javascript">
+
+</script>
+
 </body>
 </html>

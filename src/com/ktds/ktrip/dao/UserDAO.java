@@ -170,6 +170,7 @@ public class UserDAO {
 					}
 				}
 				System.out.println("로그인 성공");
+				System.out.println("타입 "+vo.getType());
 				return vo;
 			} else {
 				// 패스워드가 일치하지 않는경우

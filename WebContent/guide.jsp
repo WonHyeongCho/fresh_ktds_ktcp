@@ -100,7 +100,7 @@
 							<th>상품이름</th>
 							<th style="width:35px">기간</th>
 							<th style="width:70px">신청인원</th>
-							<th style="width:70px">상세보기</th>
+							<th style="width:70px"></th>
 						</tr>
 					</thead>
 					<tbody>
@@ -114,7 +114,7 @@
 						<td><%=list.get(i).getTitle()%></td>
 						<td><%=list.get(i).getDuration()%></td>
 						<td><%=list.get(i).getCnt()%></td>
-						<td><a data-toggle="modal" data-target="#item-modal" onclick="call_detail(<%=list.get(i).getItem_id()%>)">....</a></td>
+						<td><a data-toggle="modal" data-target="#item-modal" onclick="call_detail(<%=list.get(i).getItem_id()%>)">상세보기</a></td>
 					</tr>
 					<%
 						}

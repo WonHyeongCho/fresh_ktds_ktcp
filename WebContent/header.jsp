@@ -18,7 +18,7 @@
             <div class="navbar-collapse collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="./index.jsp">service</a>
+                        <a class="nav-link" href="./index.jsp">main</a>
                     </li>
 					<%if(session.getAttribute("guide_id")!=null){ %>                               		
                     <li class="nav-item">

@@ -423,8 +423,7 @@ var active_pagenumber = 1;//현재 페이지 카운트.
                   product+='<div class="col-6 col-md-4 bbb">';
                   product+='<div class="card mb-4" style="height:500px">';
                   product+='<img src="'+ result2[i].thumbnail +'" style="height:230px" id="'+ result2[i].apply_id +'" class="card-img-top">';
-                  product+='<div style="color: red"><b>' + item_status + '</b></div>';
-                  product+='<div class="card-body"><p class="card-title">[' + result2[i].concept + ']</p>';
+                  product+='<div class="card-body"><div class="card-title" style="font-size: 20px"><b>여행이 ' + '<span style="color:red">'+ item_status + '</span> 상태입니다.</b></div><p class="card-title">[' + result2[i].concept + ']</p>';
                   product+='<p class="card-text">' + result2[i].title + '</p>';
                   product+='</div></div><button class="btn btn-primary btn-sm" onclick="deleteproduct(' + result2[i].apply_id + ');">삭제</button></div>';
                   

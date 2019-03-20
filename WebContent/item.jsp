@@ -46,6 +46,7 @@
     var last_pagenumber = 0;//현재 줄에서 마지막 페이지 카운트.
     var total_pagenumber = 0;//총 페이지 카운트. 
 	var destination = '';
+    var price= '';
     
     $(document).ready(function() {
        
@@ -105,7 +106,8 @@
                 $('#guide-comment').text(object['guide_intro']);//가이드 소개.
                 $('#guide-name').text(object['guide_name']);//가이드 이름.
                  
-                destination = object['destination'];
+                destination = object['destination'];//목적지
+                $('.price').text(object['price'] + '원');//가격
             }
         });
     }
@@ -454,9 +456,11 @@
                                         <input type="text" class="date-input form-control" id="end-date" placeholder="도착">
                                         <br>
                                         <h5 class=text-info>CONTENT</h5>
-                                        <textarea rows="10" class="form-control" placeholder="가이드에게 전할 말을 적어주세요."
+                                        <textarea rows="10" class="form-control" placeholder="가이드에게 전할 말을 적어주세요.     ex)인원 : 7명"
                                                 id="contact_content"></textarea>
                                         <p class="help-block text-danger"></p>
+                                        <h5 class="price"></h5>
+                                        <br>
                                     </div>
                                     <div id="success"></div>
                                     <div class="form-group">

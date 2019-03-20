@@ -129,7 +129,7 @@ public class ItemDAO {
 
 		try {
 
-			String SQL = "select thumbnail, title, concept, contents, photo, introduction, name, destination from trip_item "
+			String SQL = "select thumbnail, title, concept, contents, photo, introduction, name, destination, price from trip_item "
 					+ "join user u " + "on u.user_id = guide_id " + "join guide_reg g " + "on u.user_id = g.user_id "
 					+ "where item_id = ?";
 
@@ -147,6 +147,7 @@ public class ItemDAO {
 				item.setGuide_intro(rs.getString("introduction"));
 				item.setGuide_name(rs.getString("name"));
 				item.setDestination(rs.getString("destination"));
+				item.setPrice(rs.getInt("price"));
 			}
 
 		} catch (Exception e) {

@@ -216,14 +216,14 @@ $( document ).ready(function() {
 
    <div class="container">
       <div class="row">
-         <div class="col-lg-9 col-md-10 mx-auto" id="insert_product">
+         <div class="col-lg-12 col-md-10 mx-auto" id="insert_product">
             <h1 class="my-4">검색된 상품</h1>
          </div>
          <!-- <div class="insert_product"></div> -->
          <br>
          <br>
 
-         <div class="col-lg-9 col-md-10 mx-auto" id="insert_product2">
+         <div class="col-lg-12 col-md-10 mx-auto" id="insert_product2">
             <!-- pagination -->
             <div class="row justify-content-center">
                <div class="pagination" id="pg1"></div>
@@ -234,7 +234,7 @@ $( document ).ready(function() {
             <h1 class="my-4">대기중인 여행</h1>
          </div>
 
-         <div class="col-lg-9 col-md-10 mx-auto" id="insert_product3">
+         <div class="col-lg-12 col-md-10 mx-auto" id="insert_product3">
             <!-- pagination -->
             <div class="row justify-content-center">
                <div class="pagination" id="pg2"></div>

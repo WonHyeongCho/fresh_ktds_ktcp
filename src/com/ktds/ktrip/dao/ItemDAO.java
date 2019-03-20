@@ -69,7 +69,7 @@ public class ItemDAO {
 	// 대기중인 여행
 	public ArrayList<ItemVO> searchcount2(int user_id) {
 		String SQL = "SELECT * FROM trip_item t " + "JOIN item_apply a " + "ON t.ITEM_ID = a.ITEM_ID "
-				+ "WHERE a.ITEM_STATUS = 1 and USER_ID = ? " + "GROUP BY t.item_id";
+				+ "WHERE a.ITEM_STATUS <> 0 and USER_ID = ? " + "GROUP BY t.item_id";
 		ArrayList<ItemVO> list = new ArrayList<ItemVO>();
 		try {
 			pstmt = conn.prepareStatement(SQL);

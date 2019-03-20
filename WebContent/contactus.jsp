@@ -27,6 +27,7 @@
     <link href="./css/common.css" rel="stylesheet" type="text/css">
     <script src="./js/common.js"></script>
     <script src="js/clean-blog.min.js"></script>
+    <script data-cfasync="false" type="text/javascript"></script>
 </head>
 <body>
 	<%@ include file="./header.jsp"%>
@@ -69,31 +70,31 @@
             </div>
             <div class="col-lg-8 col-md-10 mx-auto">
                 <br>
-                <form name="sentMessage" id="contactForm" novalidate>
+                <form name="sentMessage" id="gform" novalidate>
                     <div class="control-group">
                         <h5 class=text-info>TITLE</h5>
-                        <input type="text" class="form-control" placeholder="제목을 입력해 주세요" id="contact_title"
+                        <input type="text" class="form-control" placeholder="제목을 입력해 주세요" id="title"
                             required
                             data-validation-required-message="Please enter the title.">
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="control-group">
                         <h5 class=text-info>NAME</h5>
-                        <input type="text" class="form-control" placeholder="이름을 입력해 주세요" id="contact_title"
+                        <input type="text" class="form-control" placeholder="이름을 입력해 주세요" id="name"
                                 required
                                 data-validation-required-message="Please enter your name.">
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="control-group">
                         <h5 class=text-info>EMAIL</h5>
-                        <input type="text" class="form-control" placeholder="이메일을 입력해 주세요" id="contact_title"
+                        <input type="text" class="form-control" placeholder="이메일을 입력해 주세요" id="email"
                                 required
                                 data-validation-required-message="Please enter your Eamil.">
                         <p class="help-block text-danger"></p>
                     </div>
                     <div class="control-group">
                         <h5 class=text-info>PHONE</h5>
-                        <input type="text" class="form-control" placeholder="휴대폰 번호(-제외)를 입력해 주세요" id="contact_title"
+                        <input type="text" class="form-control" placeholder="휴대폰 번호(-제외)를 입력해 주세요" id="phone"
                                 required
                                 data-validation-required-message="Please enter your phone number.">
                         <p class="help-block text-danger"></p>
@@ -101,18 +102,41 @@
                     <div class="control-group">
                         <h5 class=text-info>CONTENT</h5>
                         <textarea rows="10" class="form-control" placeholder="내용을 입력해 주세요"
-                                id="contact_content"></textarea>
+                                id="content"></textarea>
                         <p class="help-block text-danger"></p>
                     </div>
                     <div id="success"></div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
+                        <button type="submit" class="btn btn-primary" id="sendForm">Send</button>
                         <button type="cancel" class="btn btn-primary" onclick=" location.href='./notice.jsp'">Cancel</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+    <script>
+$("#sendForm").click(function(e){
+e.preventDefault();
+var data = {
+name : $("#name").val(),
+title : $("#title").val(),
+email : $("#email").val(),
+phone : $("#phone").val(),
+content : $("#content").val()
+}
+    $.ajax({
+                    url: "https://script.google.com/macros/s/AKfycbxC9M_btwlssCOBzhsi7dd4_ynnFpjgp_YSozfe/exec",
+                    type: "POST",
+                    data: data,
+                    success: function(){
+                        alert("성공적으로 전송되었습니다.");
+                        $("#gform")[0].reset();
+                    }
+                });
+                });
+
+
+</script>
     <hr>
     <%@ include file="./footer.jsp"%>
 </body>

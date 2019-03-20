@@ -1,6 +1,7 @@
 package com.ktds.ktrip.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
 import com.ktds.ktrip.dao.ItemDAO;
 import com.ktds.ktrip.domain.ItemVO;
 
@@ -36,9 +38,12 @@ public class ListWaitItemController extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+
+	     response.setCharacterEncoding("utf-8");
+	     response.setContentType("application/json");
+	      
     	HttpSession session = request.getSession();
     	
-		request.setCharacterEncoding("UTF-8");
 		
 		int user_id = (int)session.getAttribute("user_id");
 		
@@ -46,19 +51,14 @@ public class ListWaitItemController extends HttpServlet {
 		result.append("{\"result\":[");
 		ItemDAO item = new ItemDAO();
 		ArrayList<ItemVO> itemList = item.searchcount2(user_id);
-		for(int i = 0; i<itemList.size(); ++i) {
-			result.append("[{\"value\": \"" + itemList.get(i).getApply_id() + "\"},");
-			result.append("{\"value\": \"" + itemList.get(i).getTitle() + "\"},");
-			result.append("{\"value\": \"" + itemList.get(i).getThumbnail() + "\"},");
-			result.append("{\"value\": \"" + itemList.get(i).getConcept() + "\"}],");
-
-
-		}
-		result.append("]}");
-		System.out.println("get wait : "+ result.toString());
 		
-		response.setContentType("text/html;charset=UTF-8");
-		response.getWriter().write(result.toString());
+		
+		Gson gson = new Gson();
+		String jsonList = gson.toJson(itemList);
+		PrintWriter out = response.getWriter();
+		out.write(jsonList);
+		out.flush();
+		out.close();
 		
 	}
 
@@ -67,15 +67,19 @@ public class ListWaitItemController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-    	HttpSession session = request.getSession();
+    	
+		ArrayList<ItemVO> itemList2 = new ArrayList<ItemVO>();
+
+		 response.setCharacterEncoding("utf-8");
+	     response.setContentType("application/json");
+	      
+		HttpSession session = request.getSession();
 		System.out.println("post request");
 
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html;charset=UTF-8");
-		
+	
 		int user_id = (int)session.getAttribute("user_id");		
 		int pagingnumber = Integer.parseInt(request.getParameter("pagingnumber"));
-		int pageEnd = pagingnumber * 5;
+		int pageEnd = pagingnumber * 6;
 
 		StringBuffer result = new StringBuffer("");
 		result.append("{\"result\":[");
@@ -86,21 +90,24 @@ public class ListWaitItemController extends HttpServlet {
 			pageEnd = itemList.size();
 		}
 		
-		for(int i = pagingnumber*5-5; i<pageEnd; ++i) {
-			result.append("[{\"value\": \"" + itemList.get(i).getApply_id() + "\"},");
-			result.append("{\"value\": \"" + itemList.get(i).getTitle() + "\"},");
-			result.append("{\"value\": \"" + itemList.get(i).getThumbnail() + "\"},");
-			result.append("{\"value\": \"" + itemList.get(i).getConcept() + "\"}],");
+
+		for(int i = pagingnumber*6-6; i<pageEnd; i++) {
+			itemList2.add(itemList.get(i));
 
 
 		}
-		result.append("]}");
-		System.out.println("post wait : "+ result.toString());
 		
-		response.setContentType("text/html;charset=UTF-8");
-		response.getWriter().write(result.toString());
+		System.out.println("wait size : " + itemList2.size());
 
+		Gson gson = new Gson();
+		String jsonList = gson.toJson(itemList2);
+		PrintWriter out = response.getWriter();
+		out.write(jsonList);
+		out.flush();
+		out.close();
 		
+		System.out.println("wait post result" + jsonList);
+
 	}
 	
 }

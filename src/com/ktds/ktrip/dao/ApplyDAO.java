@@ -36,8 +36,8 @@ public class ApplyDAO {
 
 		try {
 
-			String insertSql = "Insert into item_apply (user_id, , item_id, comment, start_date, end_date, item_status, entry) "
-					+"values (?, ?, ?, ?, ?, ?, ?)";
+			String insertSql = "Insert into item_apply (user_id, item_id, comment, start_date, end_date, item_status, entry) "
+					+"values (?, ?, ?, ?, ?, 1, 1)";
 
 			pstmt = conn.prepareStatement(insertSql);
 
@@ -46,8 +46,7 @@ public class ApplyDAO {
 			pstmt.setString(3, apply.getComment());
 			pstmt.setString(4, apply.getStart_date());
 			pstmt.setString(5, apply.getEnd_date());
-			pstmt.setInt(6, apply.getItem_status());
-			pstmt.setInt(7, apply.getEntry());
+			
 			
 			res = pstmt.executeUpdate();
 			

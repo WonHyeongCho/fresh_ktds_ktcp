@@ -1,5 +1,6 @@
 package com.ktds.ktrip.controller;
 
+import java.io.File;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
@@ -30,11 +31,12 @@ public class SignUpController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		
+		HttpSession session = request.getSession();
 		//파일이 저장될 서버의 경로
-		String savePath = request.getSession().getServletContext().getRealPath("user_img");
-		String defaultPhotoPath=request.getSession().getServletContext().getRealPath("user_img\\default.jpg");
+		String savePath = "/var/lib/tomcat8/webapps/user_img";
+		String defaultPhotoPath="/var/lib/tomcat8/webapps/user_img/default.jpg";
 		String picturePath;
+		String dbPath;
 		
 		//파일 크기 15MB로 제한
 		int sizeLimit = 1024*1024*15;
@@ -54,22 +56,34 @@ public class SignUpController extends HttpServlet {
 		vo.setNational(multi.getParameter("country"));
 		vo.setResidential_contry(multi.getParameter("residential_country"));
 		if(multi.getFilesystemName("photo")==null) {
-			picturePath=defaultPhotoPath;
+			dbPath="http://13.125.48.37:8080/user_img/default.jpg";
 		}else {
-			picturePath=savePath+"\\"+multi.getParameter("id")+"\\"+multi.getFilesystemName("photo");
+			picturePath=savePath+"/"+multi.getParameter("id")+".jpg";
+			/*
+			 * 사진경로에서 파일을 불러오고 사진의 이름을 유저ID로 변경
+			 */
+			File file=new File(savePath+"/"+multi.getFilesystemName("photo"));
+			file.renameTo(new File(picturePath));
+			dbPath = "http://13.125.48.37:8080/user_img/" + multi.getParameter("id") + ".jpg";
 		}
+
+		System.out.println("저장경로 "+savePath);
+		//System.out.println("사진경로 "+picturePath);
+		System.out.println("폼에서 넘어오는 사진 이름 "+multi.getFilesystemName("photo"));
 		
+		System.out.println("이름변경완료");
 		System.out.println(vo.toString());
-		System.out.println(picturePath);
 
 		UserDAO dao = new UserDAO();
-		int cheackvalue = dao.insertUser(vo,picturePath);
+		int cheackvalue = dao.insertUser(vo, dbPath);
 
 		if (cheackvalue == -1) {
 			response.sendRedirect("/ktrip/signup-fail-action.jsp");
 		}else {
+			dao.login(vo);
+			session.setAttribute("user_id", vo.getNum_id());
 			request.setAttribute("success", "true");
-			response.sendRedirect("/ktrip/login.jsp");
+			response.sendRedirect("/ktrip/index.jsp");
 		}
 	}
 }

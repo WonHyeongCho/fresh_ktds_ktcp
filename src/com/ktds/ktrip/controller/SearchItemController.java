@@ -1,6 +1,7 @@
 package com.ktds.ktrip.controller;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -13,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import com.google.gson.Gson;
 import com.ktds.ktrip.dao.ItemDAO;
 import com.ktds.ktrip.domain.ItemVO;
 
@@ -39,6 +41,10 @@ public class SearchItemController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+	     
+	      response.setCharacterEncoding("utf-8");
+	      response.setContentType("application/json");
+	      
 		String destination = request.getParameter("destination");
 		String startDate = request.getParameter("start_date");
 		String endDate = request.getParameter("end_date");
@@ -55,7 +61,7 @@ public class SearchItemController extends HttpServlet {
 			Date end = transFormat.parse(endDate);
 			
 			long diff = end.getTime() - start.getTime();
-		    diffDays = diff / (24 * 60 * 60 * 1000);
+		    diffDays = diff / (24 * 60 * 60 * 1000) + 1;
 		    
 		    System.out.println(diffDays);
 		    
@@ -68,21 +74,30 @@ public class SearchItemController extends HttpServlet {
 		result.append("{\"result\":[");
 		ItemDAO item = new ItemDAO();
 		itemList = item.searchcount(destination, (int)diffDays);
-		 
-		for(int i = 0; i<itemList.size(); ++i) {
-			result.append("[{\"value\": \"" + itemList.get(i).getItem_id() + "\"},");
-			result.append("{\"value\": \"" + itemList.get(i).getTitle() + "\"},");
-			result.append("{\"value\": \"" + itemList.get(i).getThumbnail() + "\"},");
-			result.append("{\"value\": \"" + itemList.get(i).getConcept() + "\"}],");
+		
+		Gson gson = new Gson();
+		String jsonList = gson.toJson(itemList);
+		PrintWriter out = response.getWriter();
+		out.write(jsonList);
+		out.flush();
+		out.close();
 
-		}
-		result.append("]}");
+		System.out.println(jsonList);
 		
-		
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html;charset=UTF-8");
-		response.getWriter().write(result.toString());
-		
+//		for(int i = 0; i<itemList.size(); ++i) {
+//			result.append("[{\"value\": \"" + itemList.get(i).getItem_id() + "\"},");
+//			result.append("{\"value\": \"" + itemList.get(i).getTitle() + "\"},");
+//			result.append("{\"value\": \"" + itemList.get(i).getThumbnail() + "\"},");
+//			result.append("{\"value\": \"" + itemList.get(i).getConcept() + "\"}],");
+//
+//		}
+//		result.append("]}");
+//		
+//		
+//		request.setCharacterEncoding("UTF-8");
+//		response.setContentType("text/html;charset=UTF-8");
+//		response.getWriter().write(result.toString());
+//		
 	}
 
 	/**
@@ -91,9 +106,11 @@ public class SearchItemController extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 
-		request.setCharacterEncoding("UTF-8");
-		response.setContentType("text/html;charset=UTF-8");
-		
+		ArrayList<ItemVO> itemList2 = new ArrayList<ItemVO>();
+	     
+	      response.setCharacterEncoding("utf-8");
+	      response.setContentType("application/json");
+	      
 		String destination = request.getParameter("destination");
 		String startDate = request.getParameter("start_date");
 		String endDate = request.getParameter("end_date");
@@ -112,7 +129,7 @@ public class SearchItemController extends HttpServlet {
 			Date end = transFormat.parse(endDate);
 			
 			long diff = end.getTime() - start.getTime();
-		    diffDays = diff / (24 * 60 * 60 * 1000);
+		    diffDays = diff / (24 * 60 * 60 * 1000) + 1;
 		    
 		    System.out.println(diffDays);
 		    
@@ -125,22 +142,28 @@ public class SearchItemController extends HttpServlet {
 		result.append("{\"result\":[");
 		ItemDAO item = new ItemDAO();
 		itemList = item.searchcount(destination, (int)diffDays);
-		 
+		
+		
 		if(pageEnd > itemList.size()) {
 			pageEnd = itemList.size();
 		}
 		
-		for(int i = pagingnumber*6-6; i<pageEnd; ++i) {
-			result.append("[{\"value\": \"" + itemList.get(i).getItem_id() + "\"},");
-			result.append("{\"value\": \"" + itemList.get(i).getTitle() + "\"},");
-			result.append("{\"value\": \"" + itemList.get(i).getThumbnail() + "\"},");
-			result.append("{\"value\": \"" + itemList.get(i).getConcept() + "\"}],");
+		for(int i = pagingnumber*6-6; i<pageEnd; i++) {
+			itemList2.add(itemList.get(i));
+
 
 		}
-		result.append("]}");
 		
-		System.out.println("post result" + result);
-		response.getWriter().write(result.toString());
+		System.out.println("itemList2 size : " + itemList2.size());
+
+		Gson gson = new Gson();
+		String jsonList = gson.toJson(itemList2);
+		PrintWriter out = response.getWriter();
+		out.write(jsonList);
+		out.flush();
+		out.close();
+		
+		System.out.println("post result" + jsonList);
 		
 	}
 

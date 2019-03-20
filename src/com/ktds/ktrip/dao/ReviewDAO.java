@@ -4,7 +4,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
+import com.ktds.ktrip.domain.ItemVO;
 import com.ktds.ktrip.domain.ReviewVO;
 import com.ktds.ktrip.jdbc.DBCon;
 
@@ -35,8 +37,8 @@ public class ReviewDAO {
 
 		try {
 
-			String insertSql = "Insert into item_review (item_id, user_id, score, review_contents, title) "
-					+"values (?, ?, ?, ?, ?)";
+			String insertSql = "Insert into item_review (item_id, user_id, score, review_contents, title, register_time) "
+					+"values (?, ?, ?, ?, ?, now())";
 
 			pstmt = conn.prepareStatement(insertSql);
 
@@ -55,6 +57,38 @@ public class ReviewDAO {
 		}
 
 		return res;
+	}
+
+	public ArrayList<ReviewVO> reviewList(int item_id) {
+		
+		// TODO Auto-generated method stub
+		String SQL = "SELECT * FROM  item_review r "
+				+ "JOIN user u "
+				+ "ON u.user_id = r.user_id "
+				+ "WHERE item_id =  ? ";
+		ArrayList<ReviewVO> list = new ArrayList<ReviewVO>();
+		
+		try {
+			pstmt = conn.prepareStatement(SQL);
+			pstmt.setInt(1, item_id);
+			rs = pstmt.executeQuery();
+			while(rs.next()) {
+
+				ReviewVO review = new ReviewVO();
+				review.setTitle(rs.getString("title"));
+				review.setReview_contents(rs.getString("review_contents"));
+				review.setRegister_time(rs.getString("register_time"));
+				review.setUser_id(rs.getInt("user_id"));
+				review.setUser_name(rs.getString("name"));
+				review.setScore(rs.getInt("score"));
+				list.add(review);
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return list;
 	}
 	
 }

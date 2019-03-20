@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.3" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
+  associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="com.ktds.ktrip.controller.ListOldItemController" 
+    project="ktrip-ktds-fresh-project" 
+    file="/ktrip-ktds-fresh-project/src/com/ktds/ktrip/controller/ListOldItemController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="53" width="159" x="257" y="75"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="com.ktds.ktrip.controller.SearchItemController" project="ktrip-ktds-fresh-project" 
+    file="/ktrip-ktds-fresh-project/src/com/ktds/ktrip/controller/SearchItemController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="53" width="160" x="256" y="242"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="com.ktds.ktrip.controller.GuideRegisterController" 
+    project="ktrip-ktds-fresh-project" 
+    file="/ktrip-ktds-fresh-project/src/com/ktds/ktrip/controller/GuideRegisterController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="336" y="212"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="com.ktds.ktrip.controller.LoginController" project="ktrip-ktds-fresh-project" 
+    file="/ktrip-ktds-fresh-project/src/com/ktds/ktrip/controller/LoginController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="53" width="161" x="420" y="129"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="com.ktds.ktrip.controller.DeleteItemController" project="ktrip-ktds-fresh-project" 
+    file="/ktrip-ktds-fresh-project/src/com/ktds/ktrip/controller/DeleteItemController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="53" width="159" x="585" y="130"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="com.ktds.ktrip.controller.ViewItemController" project="ktrip-ktds-fresh-project" 
+    file="/ktrip-ktds-fresh-project/src/com/ktds/ktrip/controller/ViewItemController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="53" width="161" x="420" y="243"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="7" language="java" name="com.ktds.ktrip.controller.UserUpdateController" project="ktrip-ktds-fresh-project" 
+    file="/ktrip-ktds-fresh-project/src/com/ktds/ktrip/controller/UserUpdateController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="53" width="160" x="420" y="185"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="8" language="java" name="com.ktds.ktrip.controller.InsertApplyController" 
+    project="ktrip-ktds-fresh-project" 
+    file="/ktrip-ktds-fresh-project/src/com/ktds/ktrip/controller/InsertApplyController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="53" width="160" x="586" y="244"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="9" language="java" name="com.ktds.ktrip.controller.ListWaitItemController" 
+    project="ktrip-ktds-fresh-project" 
+    file="/ktrip-ktds-fresh-project/src/com/ktds/ktrip/controller/ListWaitItemController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="53" width="159" x="257" y="130"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="10" language="java" name="com.ktds.ktrip.controller.ItemController" project="ktrip-ktds-fresh-project" 
+    file="/ktrip-ktds-fresh-project/src/com/ktds/ktrip/controller/ItemController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="53" width="159" x="585" y="186"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="11" language="java" name="com.ktds.ktrip.controller.ViewReviewController" 
+    project="ktrip-ktds-fresh-project" 
+    file="/ktrip-ktds-fresh-project/src/com/ktds/ktrip/controller/ViewReviewController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="53" width="161" x="420" y="74"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="12" language="java" name="com.ktds.ktrip.controller.InsertReviewController" 
+    project="ktrip-ktds-fresh-project" 
+    file="/ktrip-ktds-fresh-project/src/com/ktds/ktrip/controller/InsertReviewController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="53" width="159" x="586" y="73"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="13" language="java" name="com.ktds.ktrip.controller.SignUpController" project="ktrip-ktds-fresh-project" 
+    file="/ktrip-ktds-fresh-project/src/com/ktds/ktrip/controller/SignUpController.java" binary="false" 
+    corner="BOTTOM_RIGHT">    
+    <position height="53" width="162" x="419" y="299"/>    
+    <display autosize="false" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="14" language="java" name="com.ktds.ktrip.dao.ItemDAO" project="ktrip-ktds-fresh-project" 
+    file="/ktrip-ktds-fresh-project/src/com/ktds/ktrip/dao/ItemDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1022" y="137"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="15" language="java" name="com.ktds.ktrip.dao.ReviewDAO" project="ktrip-ktds-fresh-project" 
+    file="/ktrip-ktds-fresh-project/src/com/ktds/ktrip/dao/ReviewDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="930" y="138"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="16" language="java" name="com.ktds.ktrip.dao.UserDAO" project="ktrip-ktds-fresh-project" 
+    file="/ktrip-ktds-fresh-project/src/com/ktds/ktrip/dao/UserDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1023" y="193"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="17" language="java" name="com.ktds.ktrip.dao.ApplyDAO" project="ktrip-ktds-fresh-project" 
+    file="/ktrip-ktds-fresh-project/src/com/ktds/ktrip/dao/ApplyDAO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="930" y="194"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="18" language="java" name="com.ktds.ktrip.domain.guideDataVO" project="ktrip-ktds-fresh-project" 
+    file="/ktrip-ktds-fresh-project/src/com/ktds/ktrip/domain/guideDataVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="453" y="512"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="19" language="java" name="com.ktds.ktrip.domain.ReviewVO" project="ktrip-ktds-fresh-project" 
+    file="/ktrip-ktds-fresh-project/src/com/ktds/ktrip/domain/ReviewVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="347" y="457"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="20" language="java" name="com.ktds.ktrip.domain.UserVO" project="ktrip-ktds-fresh-project" 
+    file="/ktrip-ktds-fresh-project/src/com/ktds/ktrip/domain/UserVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="558" y="458"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="21" language="java" name="com.ktds.ktrip.domain.ApplyVO" project="ktrip-ktds-fresh-project" 
+    file="/ktrip-ktds-fresh-project/src/com/ktds/ktrip/domain/ApplyVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="453" y="458"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="22" language="java" name="com.ktds.ktrip.domain.ItemVO" project="ktrip-ktds-fresh-project" 
+    file="/ktrip-ktds-fresh-project/src/com/ktds/ktrip/domain/ItemVO.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="348" y="512"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="23" language="java" name="com.ktds.ktrip.util.SHA256" project="ktrip-ktds-fresh-project" 
+    file="/ktrip-ktds-fresh-project/src/com/ktds/ktrip/util/SHA256.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="985" y="476"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <class id="24" language="java" name="com.ktds.ktrip.jdbc.DBCon" project="ktrip-ktds-fresh-project" 
+    file="/ktrip-ktds-fresh-project/src/com/ktds/ktrip/jdbc/DBCon.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="893" y="476"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="false" package="false" protected="false" private="false" static="true"/>      
+      <operations public="false" package="false" protected="false" private="false" static="true"/>    
+    </display>  
+  </class>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>

@@ -7,11 +7,12 @@ public class ReviewVO {
 	private int user_id;
 	private int score;
 	private String review_contents;
-	private String register_tiem;
+	private String register_time;
 	private String modify_time;
 	private String start_date;
 	private String end_date;
 	private String title;
+	private String user_name;
 	
 	public int getReview_id() {
 		return review_id;
@@ -43,11 +44,11 @@ public class ReviewVO {
 	public void setReview_contents(String review_contents) {
 		this.review_contents = review_contents;
 	}
-	public String getRegister_tiem() {
-		return register_tiem;
+	public String getRegister_time() {
+		return register_time;
 	}
-	public void setRegister_tiem(String register_tiem) {
-		this.register_tiem = register_tiem;
+	public void setRegister_time(String register_tiem) {
+		this.register_time = register_tiem;
 	}
 	public String getModify_time() {
 		return modify_time;
@@ -72,6 +73,12 @@ public class ReviewVO {
 	}
 	public void setTitle(String title) {
 		this.title = title;
+	}
+	public String getUser_name() {
+		return user_name;
+	}
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
 	}
 	
 	

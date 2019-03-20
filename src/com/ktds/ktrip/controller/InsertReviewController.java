@@ -61,6 +61,8 @@ public class InsertReviewController extends HttpServlet {
 		reviewVo.setScore(score);
 		reviewVo.setTitle(title);
 		
+		
+		System.out.println("review item_id : " + item_id);
 		if(review.addReview(reviewVo) == 1) {
 			response.getWriter().write("success");
 

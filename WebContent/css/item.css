@@ -11,7 +11,28 @@
 	display: block;
 }
 
-/* 주원이 정의한 css */
+.btn-right{
+	width: 48%;
+}
+
+.btn-left{
+	margin-right: 1%;
+	width: 48%;
+}
+
+.kt-roaming {
+	color: #ffffff;
+	background-color: #E50D11;
+    border-color: #E50D11;
+}
+
+.kt-roaming:hover {
+	color: #ffffff;
+	background-color: #0BF0E8;
+    border-color: #0BF0E8;
+}
+
+/* 二쇱썝�씠 �젙�쓽�븳 css */
 .tab {
 	list-style: none;
 	margin: 0;

@@ -18,6 +18,10 @@ public class ItemVO {
 	private int price;
 	private int apply_id;
 	private int cnt;
+	private String guide_photo;
+	private String guide_intro;
+	private String guide_name;
+	
 
 	
 	public int getItem_id() {
@@ -117,6 +121,25 @@ public class ItemVO {
 	}
 	public void setCnt(int cnt) {
 		this.cnt = cnt;
+	}
+	
+	public String getGuide_photo() {
+		return guide_photo;
+	}
+	public void setGuide_photo(String guide_photo) {
+		this.guide_photo = guide_photo;
+	}
+	public String getGuide_intro() {
+		return guide_intro;
+	}
+	public void setGuide_intro(String guide_intro) {
+		this.guide_intro = guide_intro;
+	}
+	public String getGuide_name() {
+		return guide_name;
+	}
+	public void setGuide_name(String guide_name) {
+		this.guide_name = guide_name;
 	}
 	
 	@Override

@@ -45,7 +45,8 @@
     var first_pagenumber = 0;//현재 줄에서 첫번째 페이지 카운트.
     var last_pagenumber = 0;//현재 줄에서 마지막 페이지 카운트.
     var total_pagenumber = 0;//총 페이지 카운트. 
-
+	var destination = '';
+    
     $(document).ready(function() {
        
         //1.받아온 상품id로 상품 사진, 상품 제목, 상품 컨셉, 상품 본문, 가이드 사진, 가이드 이름, 가이드 소개
@@ -64,8 +65,6 @@
        var end_date = $('#end-date').val();
        var contact_content = $('#contact_content').val();
        
-       alert('applyItem: ');
-       
        $.ajax({
             type : "POST",
             url : "./insertApply",
@@ -78,46 +77,35 @@
                 
                if(result == "success"){
                     //리뷰 등록 완료.
-                  alert('상품 신청 성공.');
+                  $('#myModal').modal('show');
                  }else{
                     //리뷰 등록 실패.
-                    alert('상품 신청 실패.');
+                    console.log('상품 신청 실패.');
                  }
             }
         });
     }
 
     function loadproductinfo(){
-        
+    	
        var item_id = '<%=productID%>';
-        
+       
         $.ajax({
             type : "POST",
             url : "./viewItem",
             data : {item_id:item_id},
-            success : function(result) {
-                
-                var object = eval('(' + result + ')');
-                var result2 = object.result;
-                
+            success : function(object) {
+
                 //상품 사진, 상품 제목, 상품 컨셉, 상품 본문, 가이드 사진, 가이드 이름, 가이드 소개
-                if(result2.length != 0){
-                    for (var i = 0; i < result2.length; ++i) {
-                        
-                       $('#item-img').attr('src', result2[i][0].value);//상품 사진.
-                       $('#item-title').text(result2[i][1].value);//상품 제목.
-                       $('#item-concept').text(result2[i][2].value);//상품 컨셉.
-                       $('#item-main').text(result2[i][3].value);//상품 본문.
-                       $('#guide-img').attr('src', result2[i][4].value);//가이드 사진.
-                       $('#guide-comment').text(result2[i][5].value);//가이드 소개.
-                       $('#guide-name').text(result2[i][6].value);//가이드 이름.
-                      
-                    }
-                 }else{
-                   alert('상품이 존재하지 않습니다.');
-                    location.href="tourlist.jsp";
-                 }
-                
+                $('#item-img').attr('src', object['thumbnail']);//상품 사진.
+                $('#item-title').text(object['title']);//상품 제목.
+                $('#item-concept').text('[' + object['concept'] + ']');//상품 컨셉.
+                $('#item-main').text(object['contents']);//상품 본문.
+                $('#guide-img').attr('src', object['guide_photo']);//가이드 사진.
+                $('#guide-comment').text(object['guide_intro']);//가이드 소개.
+                $('#guide-name').text(object['guide_name']);//가이드 이름.
+                 
+                destination = object['destination'];
             }
         });
     }
@@ -127,20 +115,12 @@
        var item_id = '<%=productID%>';
        $('.pagination').html('');//페이지 네이션 초기화.
        
-       alert('loadcount! :' + item_id);
-       
         $.ajax({
             type : "GET",
             url : "./viewReview",
             data : {item_id:item_id
             },
-            success : function(result) {
-                
-            	alert(result);
-                var object = eval('(' + result + ')');
-                var result2 = object.result;
-                
-                alert(result2.length);
+            success : function(result2) {
                 
                 if(result2.length != 0){
                     
@@ -205,33 +185,30 @@
        
        var item_id = '<%=productID%>';
        
-       alert('loadtable! :' + item_id);
-       
         $.ajax({
             type : "POST",
             url : "./viewReview",
             data : {item_id:item_id,
-            	pagingnumber:active_pagenumber
+               pagingnumber:active_pagenumber
                },
-            success : function(result) {
-            	alert(result);
-                var object = eval('(' + result + ')');
-                var result2 = object.result;
-                alert(result2.length);
-                
+            success : function(result2) {
+               
                 if(result2.length != 0){
                    var product2='';
                    
                    //제목, 본문, 게시시간, 회원번호.
                    for (var i = 0; i < result2.length; ++i) {
-                       prouct2='<div class="card mb-4"><div class="card-body"><br>';
-                       product2='<h2 class="card-title">' + result2[i][0].value + '</h2>';
-                       product2='<p class="card-text">' + result2[i][1].value + '</p></div>';
-                       product2='<div class="card-footer text-muted">Posted on ' + result2[i][2].value + ' by '+ result2[i][3].value + '</div>';
-                       product2='</div>';
+                       
+                       product2+='<div class="card mb-4"><div class="card-body"><br>';
+                       product2+='<h2 class="card-title">' + result2[i]['title'] + '</h2>';
+                       product2+='<p class="card-text">' + result2[i]['review_contents'] + '</p></div>';
+                       //product2+='<div class="card-footer text-muted">Posted on ' + result2[i]['register_time'] + ' by '+ result2[i]['user_name'] + '</div>';
+                       product2+='<div class="card-footer text-muted">Posted on ' + result2[i]['register_time'] + ' by '+ result2[i]['user_name'] + '<div style="color: red"><b>' + result2[i]['score'] + '점 </b></div></div>';
+                       //product2+='<div style="color: red"><b>' + result2[i]['score'] + '점 </b></div>';
+                       product2+='</div>';
                     }
-                   	
-                    $('.insert_product').html(product2)
+                      
+                    $('.insert_product').html(product2);
                 }else{
                     $('.insert_product').html("리뷰가 없습니다.");
                 }
@@ -396,6 +373,30 @@
         }
     });
     
+    function roaming() {
+    	var nation = '';
+    	if(destination == '뉴욕'){
+    		nation = '미국';
+    	}
+    	else if (destination == '런던'){
+    		nation = '영국';
+    	}
+    	else if (destination == '파리'){
+    		nation = '프랑스';
+    	}
+    	else if (destination == '오사카'){
+    		nation = '일본';
+    	}
+    	else if (destination == '바르셀로나'){
+    		nation = '스페인';
+    	}
+    	else if (destination == '프라하'){
+    		nation = '체코';
+    	}
+    	
+    	roaming_page = 'https://globalroaming.kt.com/rate/rate.asp?nation=' + nation + '&duration=1&condition=all';
+    	window.open(roaming_page);
+    };
     </script>
 </head>
 <body>
@@ -424,15 +425,15 @@
         <div class="row">
             <!-- Blog Entries Column -->
             <div class="col-md-8">
-                <h1 class="my-4" id="item-title">14박 15일 프랑스 여행
-                    <small id="item-concept">[식도락]</small>
+                <h1 class="my-4" id="item-title">
+                    <h3 id="item-concept"></h3>
                 </h1>
         
                 <!-- Blog Post -->
                 <div class="card mb-4">
-                    <img class="card-img-top" src="./img/paris.jpg" alt="Card image cap" id="item-img">
+                    <img class="card-img-top" src="" alt="Card image cap" id="item-img">
                     <div class="card-body">
-                        <p class="card-text" id="item-main">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
+                        <p class="card-text" id="item-main"></p>
                     </div>
                 </div>
             </div>
@@ -453,13 +454,14 @@
                                         <input type="text" class="date-input form-control" id="end-date" placeholder="도착">
                                         <br>
                                         <h5 class=text-info>CONTENT</h5>
-                                        <textarea rows="10" class="form-control" placeholder="Content"
+                                        <textarea rows="10" class="form-control" placeholder="가이드에게 전할 말을 적어주세요."
                                                 id="contact_content"></textarea>
                                         <p class="help-block text-danger"></p>
                                     </div>
                                     <div id="success"></div>
                                     <div class="form-group">
-                                        <button type="submit" class="btn btn-primary" id="sendMessageButton" onclick="applyItem();">신청 하기</button>
+                                        <button type="submit" class="btn btn-primary btn-left" id="sendMessageButton" onclick="applyItem();">신청 하기</button>
+                                        <button type="submit" class="btn kt-roaming btn-right" id="sendMessageButton" onclick="roaming();">추천 로밍</button>
                                     </div>
                                 </div>
                             </div>
@@ -469,9 +471,7 @@
             </div>
             <div class="col-md-10 mx-auto">
                 <h2 class="post-title">여행 리뷰</h2>
-                <div class="insert_product">
-                   
-                </div>
+                <div class="insert_product"></div>
                 
                 <!-- pagination -->
              <div class="pagination-wrap justify-content-center">
@@ -483,7 +483,7 @@
                 <h2 class="post-title">가이드 소개</h2>
                 <div class="card mb-4">
                     <div class="card-body">
-                        <img class="card-img-top" id="guide-thumbnail" src="./img/guide-thumbnail.jpg" alt="Card image cap" id="guide-img">
+                        <img class="card-img-top" src="./img/guide-thumbnail.jpg" alt="Card image cap" id="guide-img">
                         <br>
                         <h2 class="card-title" id="guide-name">John Green</h2>
                         <p class="card-text" id="guide-comment">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
@@ -491,6 +491,27 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" role="dialog">
+            <div class="modal-dialog modal-lg">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">상품 신청</h4>
+                    </div>
+                    <div class="modal-body">
+                        <p>상품 신청 성공</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
     </div>
     <!-- Footer -->
     <hr>

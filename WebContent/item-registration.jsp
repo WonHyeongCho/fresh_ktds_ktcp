@@ -25,6 +25,7 @@
   <link href="./css/common.css" rel="stylesheet" type="text/css">
   <script src="./js/common.js"></script>
   <script src="js/clean-blog.min.js"></script>
+  <script src="./js/item-registration.js"></script>
 </head>
 <body>
   <%@ include file="./header.jsp"%>
@@ -52,7 +53,7 @@
                   <div class="navbar-collapse collapse show" id="navbarResponsive">
                       <ul class="navbar-nav mr-auto">
                           <li class="nav-item">
-                              <a class="nav-link" href="./guide.jsp">등록한 여행</a>
+                              <a class="nav-link" href="./itemServlet?actionMode=LIST">등록한 여행</a>
                           </li>
                           <li class="nav-item">
                               <a class="nav-link" href="./item-registration.jsp">여행 상품 등록</a>
@@ -65,7 +66,8 @@
       </div>
       <div class="col-lg-8 col-md-10 mx-auto">
         <!-- Contact Form -->
-        <form method="POST" action="/ktrip/itemServlet?actionMode=INS" name="form_item_reg" id="trip_item" novalidate="">
+        <form method="POST" action="/ktrip/itemServlet?actionMode=INS" name="form_item_reg" 
+        id="trip_item" onsubmit="return trip_item_check()" novalidate="" enctype="multipart/form-data">
           <!--아이디 확인.-->
           <div class="control-group">
             <h5 class=text-info>상품명</h5>

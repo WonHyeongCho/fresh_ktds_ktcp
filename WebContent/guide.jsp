@@ -36,53 +36,26 @@
 <script src="./js/common.js"></script>
 <script src="js/clean-blog.min.js"></script>
 
+<!--guide script  -->
+<script src="./js/guide.js"></script>
+
+
 <!-- 데이터테이블 처리 -->
 <link rel="stylesheet" type="text/css" href="DataTables/datatables.css"/>
 <script type="text/javascript" src="DataTables/datatables.js"></script>
-<script type="text/javascript">
-	$(document).ready(function() {
-		$('#mytable').DataTable({
-			 "lengthMenu": [ 5, 10, 50, 75, 100 ]
-		});
-	});
-</script>
 
- <script>
-	function call_detail(item_id){
-		$.ajax({
-            type : "POST",
-            url : "/ktrip/itemServlet",
-            data:{actionMode:'SELECT',
-            	  guide_id:2,
-            	  item_id:item_id},
-            success : function(data){
-                console.log(data);
-                //data == JSON ==> {key:value}  var v={name:'길동'}   v.name ==> '길동'
-             	jss = JSON.parse(data)
-             	$('#detail_title').text(jss.title);
-                $('#title').val(jss.title);
-                $('#contents').val(jss.contents);
-                $('#num_min').val(jss.num_min);
-                $('#num_max').val(jss.num_max);
-                $('#duration').val(jss.duration);
-                $('#price').val(jss.price);
-                $('#concept').val(jss.concept);
-                $('#thumbnail').val(jss.thumbnail);
-                $('#thumbnail').val(jss.thumbnail);
-                $('#item_form').attr("action","/ktrip/itemServlet?actionMode=UPDATE&item_id="+item_id);
-                console.log("/ktrip/itemServlet?actionMode=UPDATE&item_id="+item_id);
-                //**//alert(jss로드성공);
-            }             
-        });		
-	}	
-</script>
- 
 <style>
-	#mytable_filter{
+	#item_list_filter{
 		display: none 
 	}
+	#item_list{
+    padding-bottom: 0px;
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-right: 0px;
+}
 </style>
- 
+  
 </head>
 <body>
 	<%@ include file="./header.jsp"%>
@@ -93,7 +66,7 @@
 			<div class="row">
 				<div class="col-lg-8 col-md-10 mx-auto">
 					<div class="page-heading">
-						<h1>가이드</h1>
+						<h1>GUIDE</h1>
 						<!--span class="subheading">자주 묻는 질문</span-->
 					</div>
 				</div>
@@ -110,7 +83,7 @@
 						<div class="navbar-collapse collapse show" id="navbarResponsive">
 							<ul class="navbar-nav mr-auto">
 								<li class="nav-item"><a class="nav-link"
-									href="./guide.jsp">등록한 여행</a></li>
+									href="./itemServlet?actionMode=LIST">등록한 여행</a></li>
 								<li class="nav-item"><a class="nav-link"
 									href="./item-registration.jsp">여행 상품 등록</a></li>
 							</ul>
@@ -121,27 +94,19 @@
 			</div>
 			<div class="col-lg-8 col-md-10 mx-auto">
 				<!-- Contact Form -->
-				<h5>등록한 여행</h5>
-				<br>
-				<table id="mytable" class="table table-responsive{-sm|-md|-lg|-xl}">
+				<table id="item_list" class="table table-responsive{-sm|-md|-lg|-xl}">
 					<thead class="thead-light">
 						<tr>
 							<th>상품이름</th>
-							<th>기간</th>
-							<th>신청자</th>
-							<th>상세보기</th>
+							<th style="width:35px">기간</th>
+							<th style="width:70px">신청인원</th>
+							<th style="width:70px">상세보기</th>
 						</tr>
 					</thead>
-					</tbody>
+					<tbody>
 					<!-- 리스트 값 호출 처리 -->
 					<%
 						ArrayList<ItemVO> list = (ArrayList)request.getAttribute("list");
-/* 						for (int i = 0; i < list.size(); i++) {
-							System.out.println(list.get(i).getTitle());
-							System.out.println(list.get(i).getDuration());
-							System.out.println(list.get(i).getCnt());
-							System.out.println(list.get(i).getItem_id());
-						} */
                    if(list != null){
 						for (int i = 0; i < list.size(); i++) {
 					%>
@@ -149,7 +114,7 @@
 						<td><%=list.get(i).getTitle()%></td>
 						<td><%=list.get(i).getDuration()%></td>
 						<td><%=list.get(i).getCnt()%></td>
-						<td><a data-toggle="modal" data-target="#item-modal" onclick="call_detail(<%=list.get(i).getItem_id()%>)">....</td>
+						<td><a data-toggle="modal" data-target="#item-modal" onclick="call_detail(<%=list.get(i).getItem_id()%>)">....</a></td>
 					</tr>
 					<%
 						}
@@ -163,8 +128,8 @@
 					<div class="modal-dialog modal-lg">
 						<div class="modal-content">
 							<!-- Page Header -->
-							<header
-								class="item-modal-header modal-header masthead header-block">
+
+							<header class="item-modal-header modal-header masthead header-block">  
 								<div class="overlay"></div>
 								<div class="container">
 									<div class="row">
@@ -184,8 +149,7 @@
 										<div class="col-lg-8 col-md-10 mx-auto">
 											<!-- Contact Form -->
 											<h5>신청자 목록</h5>
-											<table
-												class="table table-sm  table-responsive{-sm|-md|-lg|-xl} text-center">
+											<table id="apply_list_table" class="table table-sm  table-responsive{-sm|-md|-lg|-xl} text-center">
 												<thead class="thead-light">
 													<tr>
 														<th>신청자</th>
@@ -194,34 +158,12 @@
 														<th>거절</th>
 													</tr>
 												</thead>
-												<tbody>
-												<tr>
-													<td>길라임</td>
-													<td>3박4일</td>
-													<td><button class="btn-primary btn-sm" id="btn_accept">승낙</button></td>
-													<td><button class="btn-primary btn-sm"
-															id="btn_decline">거절</button></td>
-												</tr>
-												<tr>
-													<td>홍길동</td>
-													<td>3박4일</td>
-													<td><button class="btn-primary btn-sm" id="btn_accept">승낙</button></td>
-													<td><button class="btn-primary btn-sm"
-															id="btn_decline">거절</button></td>
-												</tr>
-												<tr>
-													<td>김주원</td>
-													<td>3박4일</td>
-													<td><button class="btn-primary btn-sm" id="btn_accept">승낙</button></td>
-													<td><button class="btn-primary btn-sm"
-															id="btn_decline">거절</button></td>
-												</tr>
-
+												<tbody id = "apply_list_tbody">															
 												</tbody>
 											</table>
 
 											<h5>상품 정보</h5>
-											<form id="item_form" method="POST"
+											<form id="item_form" method="POST" onsubmit="return trip_item_check()"
 												action="/ktrip/itemServlet?actionMode=UPDATE"
 												name="form_item_reg" id="trip_item" novalidate="">
 
@@ -276,10 +218,14 @@
 
 												<div class="control-group">
 													<h5 class=text-info>썸네일</h5>
-													<input type="file" class="form-control-file"
+													<span id='sp'>
+													<input type="button" value="파일 선택" id="fileBt">
+													<input type="text" class="form-control-file" readonly
 														placeholder="썸네일" id="thumbnail" name="thumbnail" required
 														data-validation-required-message="썸네일 이미지를 입력해주세요.">
+												    </span>
 													<p class="help-block text-danger"></p>
+													
 												</div>
 
 												<div class="control-group">
@@ -292,10 +238,13 @@
 
 												<div id="success"></div>
 												<div class="form-group">
-													<button class="btn btn-primary" id="btn_cls"
-														onclick="self.close()">취소</button>
+													<button class="btn btn-primary" id="btn_cls" type="button"
+														onclick="location.href='./itemServlet?actionMode=LIST'">취소</button>
 													<button type="submit" class="btn btn-primary" id="btn_edit">수정</button>
+
+													<span id="delete_btn"></span>
 												</div>
+												
 											</form>
 										</div>
 										<!--basic containge form-->

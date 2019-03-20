@@ -411,9 +411,19 @@ var active_pagenumber = 1;//현재 페이지 카운트.
                
                for (var i = 0; i < result2.length; ++i) {
                   
+            	   var item_status='';
+            	   if(result2[i].item_status == '1'){
+            		   item_status ='대기';
+            	   }else if(result2[i].item_status == '2'){
+            		   item_status ='승낙';
+            	   }else if(result2[i].item_status == '3'){
+            		   item_status ='거절';
+            	   }
+            	   
                   product+='<div class="col-6 col-md-4 bbb">';
                   product+='<div class="card mb-4" style="height:500px">';
                   product+='<img src="'+ result2[i].thumbnail +'" style="height:230px" id="'+ result2[i].apply_id +'" class="card-img-top">';
+                  product+='<div style="color: red"><b>' + item_status + '</b></div>';
                   product+='<div class="card-body"><p class="card-title">[' + result2[i].concept + ']</p>';
                   product+='<p class="card-text">' + result2[i].title + '</p>';
                   product+='</div></div><button class="btn btn-primary btn-sm" onclick="deleteproduct(' + result2[i].apply_id + ');">삭제</button></div>';

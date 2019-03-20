@@ -83,6 +83,7 @@ public class ItemDAO {
 				item.setTitle(rs.getString("title"));
 				item.setThumbnail(rs.getString("thumbnail"));
 				item.setConcept(rs.getString("concept"));
+				item.setItem_status(rs.getInt("item_status"));
 				list.add(item);
 			}
 

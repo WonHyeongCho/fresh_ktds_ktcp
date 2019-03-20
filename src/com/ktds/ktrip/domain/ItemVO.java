@@ -14,7 +14,7 @@ public class ItemVO {
 	private String contents;
 	private String register_time;
 	private String update_time;
-	private String item_status;
+	private int item_status;
 	private int price;
 	private int apply_id;
 	private int cnt;
@@ -84,10 +84,10 @@ public class ItemVO {
 	public void setUpdate_time(String update_time) {
 		this.update_time = update_time;
 	}
-	public String getItem_status() {
+	public int getItem_status() {
 		return item_status;
 	}
-	public void setItem_status(String item_status) {
+	public void setItem_status(int item_status) {
 		this.item_status = item_status;
 	}
 	public int getPrice() {
